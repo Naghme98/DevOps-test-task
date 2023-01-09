@@ -1,17 +1,20 @@
-From python:3.12.0a3-slim
+From python:3.12-rc-slim
 
-RUN groupadd --gid 1000 && \
+RUN groupadd --gid 1000 app && \
     useradd --create-home --gid 1000 --uid 1000 app
 
 RUN mkdir -p /home/app/src
 
 WORKDIR /home/app/src
 
-COPY ./ requirements.txt
+COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
+
+#Copy project file
+COPY ./ /home/app/src
 
 USER app
 
-ENTRYPOINT ["flask"]
-
-CMD ["run", "--host=0.0.0.0"]
+ENTRYPOINT ["gunicorn"]
+EXPOSE 8000
+CMD ["app:app"]

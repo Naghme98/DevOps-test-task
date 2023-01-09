@@ -16,5 +16,5 @@ COPY ./ /home/app/src
 USER app
 
 ENTRYPOINT ["gunicorn"]
-EXPOSE 8000
-CMD ["app:app"]
+EXPOSE 5000
+CMD ["--bind 0.0.0.0 app:app", "wsgi:app"]

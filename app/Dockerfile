@@ -17,4 +17,4 @@ USER app
 
 ENTRYPOINT ["gunicorn"]
 EXPOSE 5000
-CMD ["--bind 0.0.0.0 app:app", "wsgi:app"]
+CMD ["--bind 0.0.0.0", "wsgi:app"]

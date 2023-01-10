@@ -4,6 +4,7 @@
   become: true
   roles:
     - apt
+    - configuration
     - docker
     - web
   vars:

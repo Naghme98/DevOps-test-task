@@ -1,0 +1,30 @@
+---
+  
+- name: Clone app repos
+  git:
+    repo: "{{ git_repo_address }}"
+    dest: /home/deploy/
+    clone: yes
+    update: yes
+      
+ - name: build image
+      docker_image:
+        name: app
+        tag: v1.0
+        build:
+          path: /home/deploy/app/
+          source: build
+        state: present
+
+- name: run docker container
+      docker_container:
+        name: site1
+        image: "app:v1.0"
+        state: started
+        restart: yes
+        ports: 
+          - "{{ expose_port }}:8000"
+
+- name: Retreive Ip of Docker Container
+        shell: "docker inspect --format '{%raw %}{{ .NetworkSettings.IPAddress }}{% endraw %}' $(docker ps --format '{% raw %}{{ .Names }}{% endraw %}')"
+        register: container_ip

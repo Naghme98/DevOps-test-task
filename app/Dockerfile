@@ -7,14 +7,15 @@ RUN mkdir -p /home/app/src
 
 WORKDIR /home/app/src
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
-
 #Copy project file
 COPY ./ /home/app/src
+
+RUN pip3 install -r requirements.txt
 
 USER app
 
 ENTRYPOINT ["gunicorn"]
+
 EXPOSE 8000
+
 CMD ["--bind", "0.0.0.0:8000", "wsgi:app"]

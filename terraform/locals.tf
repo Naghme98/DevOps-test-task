@@ -26,10 +26,16 @@ locals {
           protocol    = "tcp"
           cidr_blocks = [var.access_ip]
         }
-        web-applicatio = {
+        web-application-tcp = {
           from        = 8000
           to          = 8000
-          protocol    = ["tcp", "udp"]
+          protocol    = "tcp"
+          cidr_blocks = [var.access_ip]
+        }
+        web-application-udp = {
+          from        = 8000
+          to          = 8000
+          protocol    = "udp"
           cidr_blocks = [var.access_ip]
         }
       }

@@ -61,6 +61,7 @@ Use can see each specific category tasks have their directory (app for deploying
 You can see the ansible directory structure:
 
 ![image](https://user-images.githubusercontent.com/45916098/211571824-7b931d16-683b-4324-ba3e-819e17bd50cf.png)
+
 Figure 5: Ansible directory structure
 
 ```

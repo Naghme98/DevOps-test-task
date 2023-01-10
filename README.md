@@ -43,15 +43,18 @@ terraform apply
 ```
 
 ![new ip-new vm](https://user-images.githubusercontent.com/45916098/211570945-24b76eab-c3b9-4d7d-849b-24d5bb9bca25.png)
+
 Figure 2: Successful vm creation
 
 ![terraform vm created](https://user-images.githubusercontent.com/45916098/211572869-7754166a-9dad-4e99-bace-d5791e7fc767.png)
+
 Figure 3: AWS dashbord, successful instance created
 
 When we run the terraform, it will create a private key with name of "key.pem" in the terraform directory.
 We use it to connect to the machine:
 
 ![new-success-cli-ubuntu](https://user-images.githubusercontent.com/45916098/211571253-8ff74a14-bdb9-4c53-9f63-45a4d28cb3c9.png)
+
 Figure 4: Connecting to the created machine
 
 ### Ansible:
